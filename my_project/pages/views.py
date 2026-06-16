@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Article
 from .forms import FeedbackForm, ArticleForm
+from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
 
@@ -71,7 +72,13 @@ def article_create(request):
 
         if form.is_valid():
 
-            article = form.save()
+            article = form.save(
+              commit=False
+            )
+
+            article.author = request.user
+
+            article.save()
 
             return redirect(
                 'article_detail',
@@ -131,4 +138,26 @@ def article_update(request, pk):
         request,
         'pages/form.html',
         context
+    )
+
+def register(request):
+
+    if request.method == 'POST':
+
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('login')
+
+    else:
+
+        form = UserCreationForm()
+
+    return render(
+        request,
+        'pages/register.html',
+        {'form': form}
     )

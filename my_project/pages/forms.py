@@ -25,7 +25,7 @@ class FeedbackForm(forms.Form):
         )
     )
 
-    class ArticleForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
 
       class Meta:
 
