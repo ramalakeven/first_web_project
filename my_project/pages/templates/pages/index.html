@@ -32,7 +32,10 @@
             <div class="card-body">
 
                 <h5 class="card-title">
-                    {{ item.title }}
+                    <a href="{% url 'article_detail' item.pk %}">
+                      {{ item.title }}
+                      </a>
+   
                 </h5>
 
                 <p class="card-text">
@@ -73,7 +76,10 @@
             <div class="card-body">
 
                 <h5 class="card-title">
-                    {{ item.title }}
+                    <a href="{% url 'article_detail' item.pk %}">
+                      {{ item.title }}
+                      </a>
+   
                 </h5>
 
                 <p class="card-text">
@@ -114,7 +120,10 @@
             <div class="card-body">
 
                 <h5 class="card-title">
-                    {{ item.title }}
+                    <a href="{% url 'article_detail' item.pk %}">
+                      {{ item.title }}
+                      </a>
+   
                 </h5>
 
                 <p class="card-text">
