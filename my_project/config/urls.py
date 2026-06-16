@@ -20,7 +20,9 @@ from pages.views import (
     index,
     about,
     article_detail,
-    contact
+    contact,
+    article_create,
+    article_update
 )
 
 urlpatterns = [
@@ -35,5 +37,16 @@ urlpatterns = [
         'article/<int:pk>/',
         article_detail,
         name='article_detail'
+    ),
+    path(
+     'article/create/',
+      article_create,
+      name='article_create'
+    ),
+
+    path(
+        'article/<int:pk>/edit/',
+        article_update,
+        name='article_update'
     ),
 ]

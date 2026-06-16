@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Article
 
 class FeedbackForm(forms.Form):
 
@@ -24,3 +24,29 @@ class FeedbackForm(forms.Form):
             attrs={'class': 'form-control'}
         )
     )
+
+    class ArticleForm(forms.ModelForm):
+
+      class Meta:
+
+        model = Article
+
+        fields = [
+            'title',
+            'description',
+            'price',
+        ]
+
+        widgets = {
+            'title': forms.TextInput(
+                attrs={'class': 'form-control'}
+            ),
+
+            'description': forms.Textarea(
+                attrs={'class': 'form-control'}
+            ),
+
+            'price': forms.NumberInput(
+                attrs={'class': 'form-control'}
+            ),
+        }

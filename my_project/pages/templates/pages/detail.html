@@ -21,7 +21,12 @@
     <p>
         Создано: {{ article.created_at }}
     </p>
-
+    <a
+     href="{% url 'article_update' article.pk %}"
+     class="btn btn-warning"
+>
+      Редактировать
+    </a>
     <a
         href="{% url 'home' %}"
         class="btn btn-secondary"
