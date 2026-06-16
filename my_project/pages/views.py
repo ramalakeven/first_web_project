@@ -1,5 +1,22 @@
 from django.shortcuts import render
 
-# Create your views here.
+
 def index(request):
-    return render(request, 'pages/index.html')
+
+    context = {
+        'title': 'Главная страница',
+        'welcome_text': 'Добро пожаловать на наш сайт!'
+    }
+
+    return render(
+        request,
+        'pages/index.html',
+        context
+    )
+
+
+def about(request):
+    return render(
+        request,
+        'pages/about.html'
+    )
